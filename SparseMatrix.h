@@ -92,10 +92,6 @@ namespace myg {
         
     }; // end of SparseMatrix class
     
-    //! overload operator to allow output to a stream
-    template <typename iT, typename fT>
-    std::ostream& operator<<(std::ostream& os,const SparseMatrix<iT,fT>& m);
-    
     // inline methods for speed
     
     //! return matrix dimension
@@ -143,5 +139,9 @@ namespace myg {
     inline void SparseMatrix<iT,fT>::operator()(const std::vector<fT>& a) { a_ = a; }
 
 } // end of namespace myg
+
+//! overload operator to allow output to a stream
+template <typename iT, typename fT>
+std::ostream& operator<<(std::ostream& os,const myg::SparseMatrix<iT,fT>& m);
 
 #endif

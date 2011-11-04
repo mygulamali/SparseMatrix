@@ -498,6 +498,9 @@ void SparseMatrix<iT,fT>::sparsityPattern(const std::set<std::pair<iT,iT> >& sp)
 		(*this)((*it).first,(*it).second,static_cast<fT>(1.0));
 }
 
+template class myg::SparseMatrix<int,double>;
+template class myg::SparseMatrix<unsigned int,double>;
+
 // global functions
 /**
  * overload << to output SparseMatrix object
@@ -512,5 +515,5 @@ ostream& operator<<(ostream& os, const SparseMatrix<iT,fT>& m) {
 	return os;
 }
 
-template class myg::SparseMatrix<int,double>;
-template class myg::SparseMatrix<unsigned int,double>;
+template ostream& operator<<(ostream& os, const SparseMatrix<int,double>& m);
+template ostream& operator<<(ostream& os, const SparseMatrix<unsigned int,double>& m);
