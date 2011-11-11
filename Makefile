@@ -1,8 +1,8 @@
-# Simple Makefile for SparseMatrix
-# Murtaza Gulamali (02/12/2006)
+# Makefile for SparseMatrix
+# Murtaza Gulamali (11/11/2011)
 
 CC      = g++
-INCLUDE =
+INCLUDE = -Iinclude
 LIBS    = -lm
 DEFS    =
 FLAGS   = -w -O3 ${INCLUDE} ${LIBS} ${DEFS}
@@ -14,16 +14,16 @@ SOURCES = SparseMatrix.cpp
 
 OBJECTS = ${SOURCES:.cpp=.o}
 
-all: SparseMatrixDemo
+all: demo
 
 .cpp.o:
 	${CC} -c ${FLAGS} $<
 
-SparseMatrixDemo: ${OBJECTS}
-	${CC} ${FLAGS} -o $@ ${OBJECTS} SparseMatrixDemo.cpp
+demo: ${OBJECTS}
+	${CC} ${FLAGS} -o $@ ${OBJECTS} demo.cpp
 
 clean:
 	rm *.o
 
 distclean: clean
-	rm ${BIN}
+	rm demo
